@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Document</title>
+</head>
+
+<div>
+  <textarea id="textarea" cols="50" rows="10"></textarea>
+
+  <button id="addBtn">addBtn</button>
+</div>
+
+
+<p><br /></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  $('#addBtn').click(function () {
+    var msg = $('#textarea').val();
+    var spos = $('#textarea').prop('selectionStart');
+    var epos = $('#textarea').prop('selectionEnd');
+    var msg1 = msg.substring(0, spos);
+    var msg2 = msg.substring(epos, msg.length);
+
+    console.log("spos: ", spos);
+    console.log("epos: ", epos);
+    console.log("msg1: ", msg1);
+    console.log("msg2: ", msg2);
+
+    var addText = "<span></span>"
+
+    $("textarea").val(msg1 + addText + msg2);
+    spos = spos + addText.length;
+    $("#textarea").prop("selectionEnd", spos).focus();
+  });
+
+  $('#textarea').keyup(function () {
+    var str = $(this).val();
+
+    if (str.includes("<List>")) {
+      var num1 = str.indexOf('<List>');
+      console.log("리스트 시작: ", num1 + 6);
+    }
+
+    if (str.includes("</List>")) {
+      var num2 = str.indexOf('</List>');
+      console.log("리스트 끝: ", num2);
+    }
+
+    var test = str.slice(num1 + 6, num2);
+
+    console.log(test);
+
+  });
+
+
+</script>
+</body>
+
+</html>

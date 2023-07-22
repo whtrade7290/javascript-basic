@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // String
+    let name = "John Doe";
+    let name2 = 'John Doe';
+
+    let doubleQuote = 'He is called "Johnny"';
+
+    // console.log(doubleQuote);
+
+    let singleQuote = "He is Called 'Johnny'";
+
+    // console.log(singleQuote);
+
+    // 역슬레쉬를 쓰면 쌍따옴표 사용 가능.
+    let doubleQuote2 = "He is Called \"Johnny\"";
+
+    // console.log(doubleQuote2);
+
+    let singleQuote2 = 'He is Called \'Johnny\'';
+
+    // console.log(singleQuote2);
+
+    // 숫자 Number
+    
+    let x = 3;
+    let y = 3.14;
+
+    let u;
+    let u2 = undefined;
+
+    console.log(u);
+
+    // null
+    // undefined과 null은 같은것이 아님
+
+    let n = null;
+    console.log(n);
+
+    // 오브젝트
+    // 사용법1 (선언 후 할당)
+    let person = {}; 
+    // person.firstName = "재석";
+    // person.lastName = "유";
+    // person.age = 50;
+
+    // 사용법2
+    person["firstName"] = "재석";
+    person["lastName"] = "유";
+    person["age"] = 50;
+
+    console.log(person.firstName);
+    console.log(person["firstName"]);
+
+    // 사용법3 (선언 하면서 할당)
+    let person2 = {
+      firstName: "종국",
+      lastName: "김",
+      age: 47,
+      // 객체안에 객체 담기
+      person1: person 
+    };
+
+    person2.email = "yu@gmail.com";
+
+    console.log(person2)
+
+    // 배열 - Array
+    // 배열안에 배열담기도 가능, 
+    let arr1 = ["Hyundai", "KIA", "Volvo"];
+
+    console.log(arr1[0]);
+    console.log(arr1[1]);
+    console.log(arr1[2]);
+
+    let arr2 = [3, 7, 2, 9, 12];
+
+    console.log(arr2[0]);
+    console.log(arr2[1]);
+    console.log(arr2[2]);
+
+    let arr3 = ["Hyundai", 3, undefined];
+
+    let arr4 = [person, person2];
+
+    let arr5 = [];
+    arr5[0] = 1;
+    arr5[1] = 5;
+
+    console.log(arr5);
+
+    arr5.push(2);
+    arr5.push(3);
+    arr5.push(4);
+    arr5.push(5);
+    
+    console.log(arr5.length);
+
+    //Boolean 참 / 거짓
+    let isAdult = true;
+    let x2 = 5;
+    let y2 = 7;
+    console.log(x2 < y2);
+
+    console.log(typeof x2);
+    console.log(typeof isAdult);
+    console.log(typeof name);
+    console.log(typeof person2);
+    // 배열은 하나의 오브젝트임
+    console.log(typeof arr1);
+    
+
+
+
+  </script>
+</body>
+</html>

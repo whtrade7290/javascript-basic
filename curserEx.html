@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div>
+    <textarea name="cur1" value="test" cols="50" rows="10"></textarea>
+
+    <button name="cur_position1">setCursorPosition (1)</button>
+  </div>
+  <div>
+    <input type="text" name="cur4" value="test_last" />
+    <button name="cur_position4">setCursorPosition ( 2 )</button>
+  </div>
+
+  <p><br /></p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $.fn.setCursorPosition = function (pos, test) {
+      console.log(pos);
+      console.log(this);
+      this.each(function (index, elem) {
+        console.log(index);
+        console.log(elem);
+        if (elem.setSelectionRange) {
+          elem.setSelectionRange(pos, pos);
+        } else if (elem.createTextRange) {
+          var range = elem.createTextRange();
+          range.collapse(true);
+          range.moveEnd('character', pos);
+          range.moveStart('character', pos);
+          range.select();
+          test = test + 'test';
+        }
+      });
+
+      return this;
+    };
+
+    $(function () {
+
+      $("button[name=cur_position1]").click(function () {
+        $("input[name=cur1]").focus().setCursorPosition(1);
+      });
+
+      $("button[name=cur_position4]").click(function () {
+        $("input[name=cur4]").focus().setCursorPosition(2, $("input[name=cur4]").val());
+      });
+    });
+  </script>
+</body>
+
+</html>

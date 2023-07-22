@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .left {
+      width: 50vw
+    }
+
+    .right {
+      width: 50vw
+    }
+
+    .spanTag {
+      display: none;
+      color: red;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="left">
+      <textarea name="myText" id="myText" cols="30" rows="10"></textarea>
+      <button id="addBtn">addBtn</button>
+    </div>
+
+
+    <div class="right">
+      <pre id="html"></pre>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      let $myText = $("#myText")
+      let $html = $("#html")
+      $myText.on("input", () => {
+        console.log($myText.val())
+        $html.html($myText.val())
+      })
+    });
+
+    $('#addBtn').click(function () {
+      var msg = $('#myText').val();
+      var spos = $('#myText').prop('selectionStart');
+      var epos = $('#myText').prop('selectionEnd');
+      var msg1 = msg.substring(0, spos);
+      var msg2 = msg.substring(epos, msg.length);
+
+      var addText = "<List></List>"
+
+      $("#myText").val(msg1 + addText + msg2);
+      spos = spos + addText.length;
+      $("#myText").prop("selectionEnd", spos).focus();
+    });
+
+    $('#myText').keyup(function () {
+      var str = $(this).val();
+
+      if (str.includes("<List>")) {
+
+        let test = str.replace("<List>", "<span class='spanTag'>");
+          
+
+        console.log("test = ", test);
+
+        var num1 = str.indexOf('<List>');
+        console.log("리스트 시작: ", num1 + 6);
+      }
+
+      if (str.includes("</List>")) {
+        var num2 = str.indexOf('</List>');
+        
+
+        console.log("리스트 끝: ", num2);
+      }
+
+      var test = str.slice(num1 + 6, num2);
+
+      console.log(test);
+
+    });
+  </script>
+</body>
+
+</html>

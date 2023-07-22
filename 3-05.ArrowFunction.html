@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function hello(){
+      console.log("Hello World");
+      return "Hello World";
+    }
+
+    // 똑같음
+    var hello  = function() {
+      console.log("Hello World");
+      return "Hello World";
+    }
+    
+    // 똑같음
+    var hello  = () => {
+      console.log("Hello World");
+      return "Hello World";
+    }
+
+     // 똑같음
+     var hello = () => "Hello World";
+
+     var hello = (firstName, lastName) => "Hello " + firstName + " " + lastName;
+     console.log(hello("John", "Doe"));
+
+     // 괄호도 생략 가능
+     var hello = fullName => "Hello " + fullName;
+     console.log(hello("John Doe"));
+
+console.log(hello);
+  </script>
+</body>
+</html>

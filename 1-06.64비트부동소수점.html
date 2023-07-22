@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let x = 0.1 + 0.2;
+
+    console.log(x.toString(2));
+
+    console.log(2/3);
+
+    console.log((0.1).toString(2));
+    // 0.0001100110011001100110011001100110011001100110011001101
+    // 64비트부동소수점
+
+    // 1비트 - 양수 0, 음수 1
+    // 11비트 - 지수부 공식 : -2^(10)-z + m 
+    // 52비트 - 가수부
+    // 2^10 = 1024 -1 -4
+
+    console.log((1019).toString(2));
+
+    
+
+    console.log(parseInt('0100110011001100110011001100110011001100110011001101'),2) * Math.pow(2, -55);
+
+
+    // 자바스크립트 소수점 이하 계산은 반올림을 해버려서 정확하지 않음으로
+    // 사용하지 않는게 좋음
+
+    // 자바스크립트 연산 라이브러리
+    //BigNumber.js
+    //Big.js
+    //Decimal.js
+
+    let x2 = 9999999999999999;
+    console.log(x2);
+    console.log(Number.MAX_SAFE_INTEGER);
+    //9007199254740991
+
+
+  </script>
+</body>
+</html>

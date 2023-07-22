@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <script>
+    //
+    var d = new Date(); // 함수를 호출 할 때의 날짜
+    console.log(d);
+
+    console.log(d.getTimezoneOffset()); // 분단위 리턴
+    // -540 = 9시간 -1
+
+    var year = d.getFullYear();
+    console.log(year);
+
+    var month = d.getMonth();
+    console.log(month);
+
+    var date = d.getDate();
+    console.log(day);
+
+    // 요일 일요일 - 0부터 ~ 토요일 6까지
+    var day = d.getDay();
+    console.log(day);
+
+    var hour = d.getHours();
+    var minute = d.getMinutes();
+    var second = d.getSeconds();
+
+    var d = new Date();
+
+    var utcYear = d.getUTCFullYear();
+
+    console.log(utcYear);
+    d.setFullYear(2020);
+
+    console.log(d);
+
+    // 글로벌 서비스의 경우는 타임존을 고려해야됨
+    
+
+
+    // Tue Mar 08 2022 20:35:45 GMT+0900 (한국 표준시)
+
+    // 지정 날짜 가능
+    // month 월인 경우는 0월부터 시작(1월이 0임)
+    // day 일자인 경우는 1부터 시작
+    var d = new Date(2021,03,27,11,14,23);
+    console.log(d);
+
+    // 2021-03-21, 2021.03.21
+    // ex 미국이다 --> 월 일 년도 - Mar 21, 2021
+    var month_en = ["Jan", "Feb", "Mar"];
+    
+    // 3월인 경우 - 2가 아니고 3을 준다고 치면,
+    var mon = 3;
+    console.log(month_en[mon - 1]);
+
+    console.log(moment().format("YYYY-MM-DD"));
+    console.log(moment().format("MMM-DD-YYYY"));
+
+    // 날짜 빼기
+    console.log(moment().subtract(7, "days").format("YYYY-MM-DD"));
+    console.log(moment().add(7, "days").format("YYYY-MM-DD"));
+  </script>
+</body>
+</html>

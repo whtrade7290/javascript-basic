@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    var url = "https://5ede03c7-2a3e-46a1-bb69-9a5adff5e8d6.mock.pstmn.io/userList";
+    // then << 잘 받아오면 후 처리
+    // var data = axios.get(url).then(function(response){
+    //   console.log(response.data);
+    //   return response.data;
+    // });
+
+    function getData(){
+      //promise
+      // resolve > 성공된 결과 / reject > 에러 떴을 때
+      return new Promise(function(resolve, reject){
+        axios.get(url).then(function(response){
+          console.log(response.data);
+          resolve(response.data);
+       });
+      });
+    }
+
+    var total = 0;
+
+    getData().then(function(data){
+        for(var item of data.userList){
+        // total += item.price;
+
+        console.log(item.name);
+      }
+
+      console.log(total);
+    });
+
+    
+   
+    
+  </script>
+</body>
+</html>

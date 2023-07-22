@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // if, switch
+
+    var age = 19;
+
+    if(age > 18){
+      console.log("당신은 성인입니다.");
+    }else{
+      console.log("당신은 미성년자입니다.");
+    }
+
+    var hour = 22;
+
+    if(hour < 10){
+      console.log("Good morning.");
+    }else if(hour < 18){
+      console.log("Good afternoon.");
+    }else if(hour < 21){
+      console.log("Good evening.");
+    }else {
+      console.log("Good night.");
+    }
+
+    var d = new Date();
+    var day = d.getDay();
+
+    console.log("day = " + day);
+
+    var dayName = "";
+
+    // switch() 스위치 안에는 비교 연산자를 못씀
+    switch(day){
+      case 0:
+        dayName = "일요일";
+        break;
+      case 1: 
+        dayName = "월요일";
+        break;
+      case 2: 
+        dayName = "화요일";
+        break;
+      case 3: 
+        dayName = "화요일";
+        break;
+
+      default:
+        dayName = "";
+        break;
+    }
+
+    console.log("dayName = " + dayName);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Scope는 변수에 대한 접근성을 의미합니다.
+
+    // local 스코프 - 함수 밖에서는 함수 안의  데이터에 접근 할 수 없음
+    // function myFunction(){
+    //   var carName = "Hyundai";
+    //   console.log(carName);
+    // }
+
+    // myFunction();
+    // console.log(carName);
+
+    
+      // function 안에서는 function 밖의 변수에 접근이 가능
+    var carName2 = "KIA";
+
+    // myFunction2();
+
+    // function myFunction2(){
+    //   console.log(carName2);
+    // }
+
+    myFunction3();
+
+    // 변수에다가 함수도 담을 수 있음.
+    var myFunction3 = function() {
+        console.log(carName2);
+    }
+
+    
+
+    
+    
+
+  </script>
+</body>
+</html>

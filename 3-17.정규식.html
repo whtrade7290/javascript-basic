@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 정규식 (Regular Expression)
+    // i < 대소문자 구분X
+    // g < 다 찾아라
+
+
+    var patt = /World/i; //World - 패턴, i-modifier
+
+    var str = "Hello WORLD! world!";
+    console.log(str.search("World"));
+
+    console.log(str.search(/world/i));
+
+    console.log(str.replace(/world/ig, "Jeremy")); 
+
+    var str = "Is this all there is";
+    var patt1 = /[hat]/g; // [abc]
+    var result = str.match(patt1);
+    console.log(result);
+
+    // [0-9]
+    var str = "123abc4523kkk";
+    var patt1 = /[0-9]/g;
+    var result = str.match(patt1);
+    console.log(result); 
+
+    //(red|green)
+    var str = "re, green, red, gree, gen, red, blue, yellow";
+    var patt1 = /(red|green)/g;
+    var result = str.match(patt1);
+    console.log(result);
+
+    // \d 숫자 [0-9] // \s 공백을 찾음
+    var str = "Give 100";
+    var patt1 = /\d/g;
+    var result = str.match(patt1);
+    console.log(result);
+
+    // \b
+    var str = "HELLO, LOOK AT ME!";
+    var patt1 = /\bLO/g;
+    var result = str.search(patt1);
+    console.log(result);
+
+    // n+ 최소한 1개 이상
+    var str = "Hellooo";
+    var patt1 = /o+/g;
+    console.log(str.match(patt1));
+
+    // n* 0혹은 n개
+    var str = "Hellooo World";
+    var patt1 = /lo*/g;
+    console.log(str.match(patt1));
+
+    // n? 0개거나 1개
+    var str = "1, 100 or 1000";
+    var patt1 = /10?/g;
+    console.log(str.match(patt1));
+
+    // 우편번호 5자리
+    // 32543
+    var patt1 = /^\d{5}$/;
+    var postalcode = "23452";
+    console.log(patt1.test(postalcode));
+
+
+    // 전화번호
+    // 010-2312-3354
+    var patt1 = /^(010)-\d{4}-\d{4}$/;
+    var tel = "010-2312-3354";
+    console.log(patt1.test(tel));
+
+    // 이메일 주소 체크
+    // \w word < 문자열
+    // seungwon.go@gmail.com
+    var patt1 = /^\w+([\.-]?\w+)*@\w+(\.\w{2,3})+$/;
+    console.log(patt1.test("seungwongo@gmail.co.kr"));
+
+    // 두자리 이상, 한글 or 영문 
+    var patt1 = /^[가-힣|a-z|A-Z|0-9|]{2,32}#\d{4}$/;
+    console.log(patt1.test("12#1234"));
+
+    var patt1 = /^[가-힣|a-z|A-Z|0-9|]{2,32}\.\xls|xlsx|jpg|png|dock|pptx|ppt|pdf|$/;
+    console.log(patt1.test("이미지d45564.ppt"));
+    
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
